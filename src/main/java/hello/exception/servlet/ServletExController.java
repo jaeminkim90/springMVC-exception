@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -14,7 +13,7 @@ public class ServletExController {
 
     @GetMapping("/error-ex")
     public void errorEx() {
-        throw new RuntimeException("예외 발생!");
+        throw new RuntimeException("예외 발생!"); // Exception은 500번 에러가 나온다
     }
 
     @GetMapping("/error-404")
@@ -26,5 +25,4 @@ public class ServletExController {
     public void error500(HttpServletResponse response) throws IOException {
         response.sendError(500, "500 오류 발생!");
     }
-
 }
